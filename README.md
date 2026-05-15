@@ -53,10 +53,33 @@ npm install
 ```
 Create a `.env` file inside the `/backend` folder with the following variables:
 ```env
+NODE_ENV=development
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
+MONGODB_URI=mongodb://localhost:27017/hiretrack
 JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRE=7d
+FRONTEND_URL=http://localhost:5173
+
+# Cloudinary (optional for image uploads)
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+# Groq AI (required for AI features)
 GROQ_API_KEY=your_groq_api_key
+
+# Nodemailer (optional for email notifications)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_app_password
+
+# Google OAuth (optional for Google login)
+GOOGLE_CLIENT_ID=your_google_client_id
+
+# Apify LinkedIn Scraper (optional for networking sync)
+APIFY_API_TOKEN=your_apify_api_token
+APIFY_ACTOR_ID=rocky_stone/linkedin-job-scraper
 ```
 Start the backend server:
 ```bash
