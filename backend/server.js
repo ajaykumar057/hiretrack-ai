@@ -53,16 +53,21 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-// Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-  const path = require('path');
-  // Set static folder
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// Serve frontend - Robust check for dist folder
+const path = require('path');
+const fs = require('fs');
+const frontendPath = path.join(__dirname, '../frontend/dist');
 
+if (fs.existsSync(frontendPath)) {
+  console.log('📦 Serving frontend from:', frontendPath);
+  app.use(express.static(frontendPath));
+  
   // For any route that doesn't match an API route, send the index.html file
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend', 'dist', 'index.html'));
+    res.sendFile(path.join(frontendPath, 'index.html'));
   });
+} else {
+  console.log('⚠️ Frontend build folder not found at:', frontendPath);
 }
 
 const server = app.listen(PORT, () => {
