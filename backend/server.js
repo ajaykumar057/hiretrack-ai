@@ -43,16 +43,6 @@ app.use('/api/linkedin', require('./routes/linkedinRoutes'));
 app.use('/api/resume-intelligence', require('./routes/resumeIntelligenceRoutes'));
 app.use('/api/resumes', require('./routes/resumeRoutes'));
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found` });
-});
-
-// Error handler
-app.use(errorHandler);
-
-const PORT = process.env.PORT || 5000;
-
 // Serve frontend - Robust check for dist folder
 const path = require('path');
 const fs = require('fs');
@@ -63,13 +53,22 @@ if (fs.existsSync(frontendPath)) {
   app.use(express.static(frontendPath));
   
   // For any route that doesn't match an API route, send the index.html file
-  app.get('*', (req, res) => {
+  app.get('(.*)', (req, res) => {
     res.sendFile(path.join(frontendPath, 'index.html'));
   });
 } else {
   console.log('⚠️ Frontend build folder not found at:', frontendPath);
 }
 
+// 404 handler for API routes
+app.use('/api', (req, res) => {
+  res.status(404).json({ success: false, message: `API Route ${req.originalUrl} not found` });
+});
+
+// Error handler
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
   console.log(`\n🚀 HireTrack AI Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
   console.log(`📡 API available at http://localhost:${PORT}/api`);
