@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start": "node backend/server.js",
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+  },
   "dependencies": {
     "cloudinary": "^1.41.3",
     "multer": "^2.1.1",

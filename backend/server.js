@@ -52,6 +52,19 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
+
+// Serve frontend in production
+if (process.env.NODE_ENV === 'production') {
+  const path = require('path');
+  // Set static folder
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+  // For any route that doesn't match an API route, send the index.html file
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../frontend', 'dist', 'index.html'));
+  });
+}
+
 const server = app.listen(PORT, () => {
   console.log(`\n🚀 HireTrack AI Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
   console.log(`📡 API available at http://localhost:${PORT}/api`);
