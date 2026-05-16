@@ -53,7 +53,7 @@ if (fs.existsSync(frontendPath)) {
   app.use(express.static(frontendPath));
   
   // For any route that doesn't match an API route, send the index.html file
-  app.get('(.*)', (req, res) => {
+  app.get(/.*/, (req, res) => {
     res.sendFile(path.join(frontendPath, 'index.html'));
   });
 } else {
