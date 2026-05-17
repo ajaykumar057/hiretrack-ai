@@ -122,7 +122,7 @@ const LoginPage = () => {
                 theme="outline"
                 shape="pill"
                 size="large"
-                width="100%"
+                width="350"
               />
             </div>
 

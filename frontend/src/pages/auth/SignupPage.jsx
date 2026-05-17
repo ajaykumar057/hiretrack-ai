@@ -176,7 +176,7 @@ const SignupPage = () => {
                     theme="outline"
                     shape="pill"
                     size="large"
-                    width="100%"
+                    width="350"
                     text="signup_with"
                   />
                 </div>
