@@ -1,6 +1,6 @@
 # 🚀 HireTrack AI
 
-![HireTrack AI Hero](https://via.placeholder.com/1200x400?text=HireTrack+AI+-+Intelligent+Job+Application+Manager)
+https://hiretrack-ai-mtgx.onrender.com/dashboard
 
 **HireTrack AI** is a premium, AI-powered SaaS platform designed to revolutionize the way job seekers manage their job applications, prepare for interviews, and optimize their resumes. By integrating advanced AI capabilities, kanban-style tracking, and networking tools, HireTrack AI serves as the ultimate companion for your career growth.
 
