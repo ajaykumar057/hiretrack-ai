@@ -97,6 +97,7 @@ export const linkedinAPI = {
   create: (data) => API.post('/linkedin', data),
   update: (id, data) => API.put(`/linkedin/${id}`, data),
   delete: (id) => API.delete(`/linkedin/${id}`),
+  search: (query) => API.get('/linkedin/search', { params: { query } }),
 };
 
 // Resume Intelligence

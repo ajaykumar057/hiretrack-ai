@@ -20,8 +20,6 @@ import InterviewVaultPage from './pages/InterviewVaultPage';
 import GoalsPage from './pages/GoalsPage';
 import AIPage from './pages/AIPage';
 import SettingsPage from './pages/SettingsPage';
-import LinkedInCRMPage from './pages/LinkedInCRMPage';
-import ResumeIntelligencePage from './pages/ResumeIntelligencePage';
 
 function App() {
   return (
@@ -67,8 +65,8 @@ function App() {
             <Route path="/goals" element={<GoalsPage />} />
             <Route path="/ai" element={<AIPage />} />
             <Route path="/settings" element={<SettingsPage />} />
-            <Route path="/linkedin-crm" element={<LinkedInCRMPage />} />
-            <Route path="/resume-intelligence" element={<ResumeIntelligencePage />} />
+            <Route path="/linkedin-crm" element={<NetworkingPage />} />
+            <Route path="/resume-intelligence" element={<ResumeManagerPage />} />
           </Route>
 
           {/* Catch all */}
